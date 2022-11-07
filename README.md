@@ -1,4 +1,4 @@
-# Slim Framework 4 Skeleton Application - AssisOfertasAPI
+# Slim Framework 4 - AssisOfertasAPI
 Slim is a PHP micro framework that helps you quickly write simple yet powerful web applications and APIs. At its core, Slim is a dispatcher that receives an HTTP request, invokes an appropriate callback routine, and returns an HTTP response. That’s it.
 
 Slim is an ideal tool to create APIs that consume, repurpose, or publish data. Slim is also a great tool for rapid prototyping. Heck, you can even build full-featured web applications with user interfaces. More importantly, Slim is super fast and has very little code.
