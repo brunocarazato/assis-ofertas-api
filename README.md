@@ -1,42 +1,58 @@
-# Slim Framework 4 Skeleton Application
+# Slim Framework 4 Skeleton Application - AssisOfertasAPI
+Slim is a PHP micro framework that helps you quickly write simple yet powerful web applications and APIs. At its core, Slim is a dispatcher that receives an HTTP request, invokes an appropriate callback routine, and returns an HTTP response. That’s it.
 
-[![Coverage Status](https://coveralls.io/repos/github/slimphp/Slim-Skeleton/badge.svg?branch=master)](https://coveralls.io/github/slimphp/Slim-Skeleton?branch=master)
+Slim is an ideal tool to create APIs that consume, repurpose, or publish data. Slim is also a great tool for rapid prototyping. Heck, you can even build full-featured web applications with user interfaces. More importantly, Slim is super fast and has very little code.
 
-Use this skeleton application to quickly setup and start working on a new Slim Framework 4 application. This application uses the latest Slim 4 with Slim PSR-7 implementation and PHP-DI container implementation. It also uses the Monolog logger.
+Configuration files:
+* app/routes
+* app/repositories
+* app/settings
 
-This skeleton application was built for Composer. This makes setting up a new Slim Framework application quick and easy.
+Project Source Files are inside _src_ folder
 
 ## Install the Application
 
-Run this command from the directory in which you want to install your new Slim Framework application. You will require PHP 7.3 or newer.
+Required PHP 7.3 or newer.
+
+Run the following command to install the dependencies.
 
 ```bash
-composer create-project slim/slim-skeleton [my-app-name]
+php composer.phar install
 ```
-
-Replace `[my-app-name]` with the desired directory name for your new application. You'll want to:
-
-* Point your virtual host document root to your new application's `public/` directory.
-* Ensure `logs/` is web writable.
 
 To run the application in development, you can run these commands 
 
 ```bash
-cd [my-app-name]
-composer start
+php composer.phar start
 ```
 
-Or you can use `docker-compose` to run the app with `docker`, so you can run these commands:
-```bash
-cd [my-app-name]
-docker-compose up -d
-```
 After that, open `http://localhost:8080` in your browser.
 
-Run this command in the application directory to run the test suite
-
-```bash
-composer test
-```
 
 That's it! Now go build something cool.
+
+## Creating the database
+
+First, in app/settings.php file you will find database standard settings. So, to get it simple, you have to create a database with the same name, user, password and collection type.
+
+
+The actual database is small, but we need to figure out how to keep the code below updated:
+
+```sql
+CREATE TABLE promocao(
+    id int PRIMARY KEY AUTO_INCREMENT,
+    produto varchar(255) NOT NULL,
+    categoria int NOT NULL,
+    fotoPromocao varchar(255) NOT NULL,
+    dataIni DATETIME NOT NULL,
+    dataFim DATETIME NOT NULL,
+    ativa boolean DEFAULT TRUE
+);
+
+CREATE TABLE user(
+    id int PRIMARY KEY AUTO_INCREMENT,
+    email varchar(255) UNIQUE NOT NULL,
+    senha varchar(255) NOT NULL,
+    nome varchar(255) NOT NULL
+);
+```
